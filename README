@@ -11,3 +11,11 @@ Following CPAN modules are required.
 To create a rpm of Linux::Smaps
 
 bin/cpan-dependency.pl --conf=config/conf.yml Linux::Smaps
+
+* conf.yml
+
+filter_requires .. Remove specified requires from the package.
+build_skip .. Skip to build the package.
+build_requires .. Build&Install specified packages before building the package.
+requires .. Add specified packages to the package's dependency.
+

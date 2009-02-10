@@ -1,0 +1,210 @@
+---
+libapreq2:
+  filter_requires:
+    perl: 1
+    mod_perl2: 1
+mod_perl2:
+  build_skip: 1
+mod_perl:
+  build_skip: 1
+bignum:
+  build_requires:
+    Math::BigInt: 1
+    Math::BigRat: 1
+Math-BigInt-GMP:
+  build_requires:
+    Math::BigInt: 1
+Math-BigRat:
+  build_requires:
+    Math::BigInt: 1
+WWW-Mixi:
+  build_skip: 1
+Date-Calc:
+  requires:
+    Carp::Clan: 1
+Text-Autoformat:
+  requires:
+    Text::Reform: 1
+Template-Toolkit:
+  requires:
+    Text::Autoformat: 1
+    Pod::POM: 1
+  version: 2.15
+Date-Japanese-Holiday:
+  requires:
+    Time::JulianDay: 1
+Image-Xbm:
+  requires:
+    Image::Base: 1
+XML-SAX:
+  filter_requires:
+    XML::SAX::PurePerl::EncodingDetect: 1
+    XML::SAX::PurePerl::DTDDecls: 1
+    XML::SAX::PurePerl::XMLDecl: 1
+    XML::SAX::PurePerl::DocType: 1
+Test-Prereq:
+  build_skip: 1
+version:
+  build_skip: 1
+SQL-Abstract:
+  build_skip: 1
+XML-LibXML:
+  build_skip: 0
+XML-RSS-LibXML:
+  filter_requires:
+    XML::LibXML::XPathContext: 1
+Text-Diff:
+  requires:
+    Algorithm::Diff: 1
+Text-Hatena:
+  filter_requires:
+    Text::Hatena: 1
+  make_no_test: 1
+DBI:
+  filter_requires:
+    Win32::ODBC: 1
+    RPC::PlServer: 1
+    RPC::PlClient: 1
+Test-Unit:
+  filter_requires:
+    Tk::BrowseEntry: 1
+    Tk::Canvas: 1
+    Tk::ROText: 1
+    Tk::DialogBox: 1
+    Tk: 1
+URI:
+  filter_requires:
+    Business::ISBN: 1
+libwww-perl:
+  filter_requires:
+    Authen::NTLM: 1
+    HTTP::GHTTP: 1
+    Win32: 1
+DateTime-TimeZone:
+  filter_requires:
+    DateTime::TimeZoneCatalog: 1
+    Win32::TieRegistry: 1
+MIME-tools:
+  filter_requires:
+    Mail::Internet: 1
+    Convert::BinHex: 1
+DateTime:
+  filter_requires:
+    DateTimePPExtra: 1
+YAML:
+  filter_requires:
+    Test::Base: 1
+SOAP-Lite:
+  build_skip: 1
+  filter_requires:
+    MQSeries::QueueManager: 1
+    MQSeries::Queue: 1
+    MQSeries::Message: 1
+    MQClient::MQSeries: 1
+    MQSeries: 1
+    MIME::Parser: 1
+    Net::Jabber: 1
+Log-Log4perl:
+  requires:
+    Log::Dispatch::File: 1
+    Log::Dispatch::FileRotate: 1
+    Log::Dispatch::Syslog: 1
+    Log::Dispatch::Screen: 1
+    IPC::Shareable: 1
+  filter_requires:
+    RRDs: 1
+Log-Dispatch:
+  requires:
+    Mail::Sender: 1
+    Mail::Sendmail: 1
+  filter_requires:
+    Apache::Log: 1
+Mail-Sender:
+  filter_requires:
+    Win32API::Registry: 1
+File-MimeInfo:
+  filter_requires:
+    File::DesktopEntry: 1
+Net-Address-Ethernet:
+  requires:
+    Test::Pod: 1
+Config:
+  build_skip: 1
+Test:
+  build_skip: 1
+Scalar-List-Utils:
+  build_skip: 1
+Module-Build:
+  build_skip: 1
+Test-Harness:
+  build_skip: 1
+IO: 
+  build_skip: 0
+PathTools:
+  build_skip: 1
+podlators:
+  build_skip: 1
+Text-Tabs+Wrap:
+  build_skip: 1
+Time-Local:
+  build_skip: 1
+Attribute_Handlers:
+  build_skip: 1
+I18N-LangTags:
+  build_skip: 1
+Locale-Maketext:
+  build_skip: 1
+perl:
+  build_skip: 1
+Test-HTTP:
+  build_requires:
+    Class::Field: 1
+POE:
+  filter_requires:
+    Tk: 1
+    Curses: 1
+GraphViz:
+  build_skip: 1
+XML-Writer:
+  filter_requires:
+    perl: 1
+DBIx-Class:
+  filter_requires:
+    DBIx::Class::ClassResolver::PassThrough: 1
+    SQL::Abstract::Limit: 1
+  requires:
+    DBIx::ContextualFetch: 1
+    SQL::Translator::Schema::Constants: 1
+    SQL::Translator::Utils: 1
+    SQL::Abstract::Limit: 1
+    JSON: 1
+SQL-Translator:
+  filter_requires:
+    GraphViz: 1
+    Spreadsheet::ParseExcel: 1
+    :: 1
+App-Ack:
+  build_requires:
+    File::Next: 1
+autobox:
+  filter_requires:
+    autobox::universal: 1
+Text-CSV_XS:
+  filter_requires:
+    perl: 1
+Perlbal:
+  requires:
+    IO::AIO: 1
+IPC-Run:
+  filter_requires:
+    Win32::Process: 1
+    Win32API::File: 1
+CPANPLUS:
+  filter_requires:
+    Your::Module::Here: 1
+Cache-Memcached-libmemcached:
+  requires:
+    Memcached::libmemcached: 1
+Time::Piece::ISO:
+  filter_requires:
+    Text::ParseWords: 1

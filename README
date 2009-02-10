@@ -1,5 +1,13 @@
-install
+
+* How to install
+
+Following CPAN modules are required.
 
 - CPANPLUS
-- CPANPLUS::Backend
 - RPM::Specfile
+
+* How to use
+
+To create a rpm of Linux::Smaps
+
+bin/cpan-dependency.pl --conf=config/conf.yml Linux::Smaps

@@ -138,7 +138,7 @@ Module-Build:
   build_skip: 1
 Test-Harness:
   build_skip: 1
-IO: 
+IO:
   build_skip: 0
 PathTools:
   build_skip: 1

@@ -15,7 +15,7 @@ sub new {
     $self->{conf} = {};
     $self->{release} = '1.rpmize';
     $self->{modules} = {};
-    $self->{backend} = new CPANPLUS::Backend;    
+    $self->{backend} = new CPANPLUS::Backend;
     $self->{pkg_name_cache} = {};
     $self->{pkg_name_prefix} = {};
     bless $self;
@@ -115,7 +115,7 @@ sub walk_tree {
 
 sub puts {
     my $self = shift;
-    
+
     my $count = 1;
     while($count > 0){
         $count = 0;
@@ -157,7 +157,7 @@ sub get_pkg_name {
         $self->{pkg_name_cache}->{$name} = $name;
     } else {
         my $cpan = $self->{backend};
-        croak "fatal: Can't create CPANPLUS::Backend object" 
+        croak "fatal: Can't create CPANPLUS::Backend object"
             unless defined $self->{backend};
         my $dist = $cpan->parse_module(module => $name);
         $self->{pkg_name_cache}->{$name} = $dist ? $dist->package_name : $name;
@@ -182,9 +182,9 @@ sub build {
     if($self->{conf}->{$pkg_name}){
         push @$filter, keys %{$self->{conf}->{$pkg_name}->{filter_requires}};
     }
-    
+
     my $cpan = $self->{backend};
-    croak "fatal: Can't create CPANPLUS::Backend object" 
+    croak "fatal: Can't create CPANPLUS::Backend object"
       unless defined $self->{backend};
     #if($self->{conf}->{$pkg_name}->{version}){
     #    $pkg_name .= '-' . $self->{conf}->{$pkg_name}->{version};
@@ -195,16 +195,16 @@ sub build {
     #print "after: parse_module\n";
     return unless $dist;
     my $dist_name = $dist->package_name;
-        
+
     print "  >> skip: is a bundle\n" and
         next if $dist->is_bundle;
-        
-    printf(" => %s(%s) %s by %s (%s)\n", $dist_name, $name, 
+
+    printf(" => %s(%s) %s by %s (%s)\n", $dist_name, $name,
            $dist->package_version, $dist->author->cpanid, $dist->author->author);
-        
+
     my $archive = '';
     my $where = '';
-        
+
     # fetch and extract the distribution
     eval {
         $archive = $dist->fetch(force => 1) or next;
@@ -265,7 +265,7 @@ sub build {
         or die "Can't create $tmpdir/perl-$name.spec: $!";
     print FH $spec;
     close FH;
-    
+
     open FH, ">$tmpdir/macros"
         or die "Can't create $tmpdir/macros: $!";
 
@@ -281,21 +281,21 @@ sub build {
 %_srcrpmdir      $outdir
 %_build_name_fmt %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm
 };
-    
+
     close FH;
-    
+
     open FH, ">$tmpdir/rpmrc"
         or die "Can't create $tmpdir/rpmrc: $!";
-    
+
     my $macrofiles = qx(rpm --showrc | grep ^macrofiles | cut -f2- -d:);
     chomp $macrofiles;
-    
+
     print FH qq{
 include: /usr/lib/rpm/rpmrc
 macrofiles: $macrofiles:$tmpdir/macros
 };
     close FH;
-    
+
     # Build the build command
     my @cmd;
     push @cmd, 'env';
@@ -317,16 +317,16 @@ macrofiles: $macrofiles:$tmpdir/macros
     if ($retval != 0) {
         die "RPM building failed!\n";
     }
-    
+
     # clean up macros file
     unlink "$tmpdir/rpmrc", "$tmpdir/macros";
-    
+
     # if we did a build all, lets move the rpms into our current
     # directory
     #my $bin_rpm = "./perl-${name}-${ver}-${release}.${build_arch}.rpm";
-    
+
     #exit(0);
-    
+
 }
 
 sub check_build {
